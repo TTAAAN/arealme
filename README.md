@@ -1,1 +1,3 @@
-# arealme
+# Arealme
+
+Bored. 
