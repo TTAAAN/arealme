@@ -23,7 +23,6 @@ end_time = int(start_time + 59)
 
 # Start clicking
 while True:
-    print(int(time.time()))
     color_div = driver.find_element(By.XPATH, '/html/body/div[5]/div[1]/div[2]').find_element(By.TAG_NAME, 'div').find_elements(By.TAG_NAME, "span")
     color_block = [color_rgb.value_of_css_property('background-color') for color_rgb in color_div]
     odd = odd_one_out(color_block)
