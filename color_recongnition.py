@@ -10,7 +10,9 @@ def odd_one_out(lst):
             return item
 
 
-driver = webdriver.Chrome()
+driver_option = webdriver.ChromeOptions()
+driver_option.add_experimental_option('detach', True)
+driver = webdriver.Chrome(options=driver_option)
 
 driver.get('https://www.arealme.com/colors/en/')
 start_button = driver.find_element(By.XPATH, '//*[@id="start"]')
@@ -23,7 +25,9 @@ end_time = int(start_time + 59)
 
 # Start clicking
 while True:
-    color_div = driver.find_element(By.XPATH, '/html/body/div[5]/div[1]/div[2]').find_element(By.TAG_NAME, 'div').find_elements(By.TAG_NAME, "span")
+    color_div = driver.find_element(By.XPATH, '/html/body/div[5]/div[1]/div[2]').find_element(By.TAG_NAME,
+                                                                                              'div').find_elements(
+        By.TAG_NAME, "span")
     color_block = [color_rgb.value_of_css_property('background-color') for color_rgb in color_div]
     odd = odd_one_out(color_block)
     for element in color_div:
