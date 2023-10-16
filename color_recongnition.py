@@ -45,12 +45,12 @@ while True:
     else:
         spam_func_output = start_spam(color_div)
         if spam_func_output == 0 and goal_wanted is None:
-            print("Done")
+            driver.execute_script(f"alert('Done')")
             break
         elif spam_func_output == 0 and goal_wanted is not None:
-            print("Goal couldn't be reached")
+            driver.execute_script(f"alert('Goal couldn't be reached')")
             break
         tracking += 1
         if (goal_wanted is not None) and (goal_wanted == tracking):
-            print(f"Goal reached: {goal_wanted}")
+            driver.execute_script(f"alert('Done, goal reached {goal_wanted}')")
             break
